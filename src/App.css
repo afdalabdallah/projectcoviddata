@@ -1,5 +1,8 @@
-.App-logo{
-  background-color: white;
-  margin: auto;
-  color: white;
+body{
+background-color: white;
+}
+
+.navbar{
+    position: sticky;
+    top: 0;
 }
