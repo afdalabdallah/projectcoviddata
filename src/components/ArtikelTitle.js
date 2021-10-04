@@ -4,7 +4,7 @@ import React from 'react'
 
 function ArtikelTitle() {
     return (
-       <Box paddingLeft="102"  >
+       <Box paddingLeft="102" id="artikeltitle" >
            <Text 
            fontSize="72" 
            fontFamily="Montserrat" 

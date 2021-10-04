@@ -3,8 +3,8 @@ import React from 'react'
 
 function Home() {
     return (
-       <Box height={720}>
-
+       <Box height={720} id="home">
+           Halo
        </Box>
     )
 }

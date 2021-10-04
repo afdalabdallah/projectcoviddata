@@ -3,7 +3,7 @@ import React from 'react'
 
 function DataIndo() {
     return (
-        <Box height="556px" bgColor="#FFD6C3" marginBottom={185}>
+        <Box height="556px" bgColor="#FFD6C3" marginBottom={180}>
 
         </Box>
     )

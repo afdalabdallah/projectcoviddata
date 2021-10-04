@@ -3,7 +3,7 @@ import { Box } from '@chakra-ui/react'
 
 function Artikel() {
     return (
-        <Box height="400px" bgColor="#FFD6C3" marginBottom="200"> 
+        <Box id="artikel" height="400px" bgColor="#FFD6C3" marginBottom="200"> 
 
         </Box>
     )
