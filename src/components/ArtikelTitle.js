@@ -8,7 +8,7 @@ function ArtikelTitle() {
            <Text 
            fontSize="72" 
            fontFamily="Montserrat" 
-           fontWeight="extrabold" 
+           fontWeight="bold" 
            color="#F57A3F"
            marginTop="200"
            marginBottom="50">
