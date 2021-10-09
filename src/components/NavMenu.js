@@ -12,7 +12,7 @@ function NavMenu() {
             fontSize="21"
             spacing="90px">
             <StackItem>
-                <LinkS to="home" spy={true} smooth={true}  offset={-109}>
+                <LinkS to="home" spy={true} smooth={true}  offset={-130}>
                     <Text cursor="pointer"> Home</Text>  
                 </LinkS>
             </StackItem>
@@ -22,7 +22,7 @@ function NavMenu() {
                 </LinkS>
             </StackItem>
             <StackItem>
-                <LinkS to="artikeltitle" spy={true} smooth={true} cursor="pointer" offset={-109}>
+                <LinkS to="artikeltitle" spy={true} smooth={true} cursor="pointer" offset={100}>
                     <Text cursor="pointer">Artikel</Text>
                 </LinkS>
             </StackItem>

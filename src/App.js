@@ -7,19 +7,22 @@ import Footer from "./sections/Footer";
 import Home from "./sections/Home";
 import Navbar from "./sections/Navbar";
 import Protokol from "./sections/Protokol";
-
+import { Box } from '@chakra-ui/react'
+import { Center } from '@chakra-ui/react'
 
 
 function App() {
   return (
    <ChakraProvider>
-      <Navbar/>
-      <Home/>
-      <DataIndo/>
-      <Protokol/>
-      <ArtikelTitle/>
-      <Artikel/>
-      <Footer/>
+     <Box w="1583px">
+        <Navbar/> 
+        <Home/>
+        <DataIndo/>
+        <Protokol/>
+        <ArtikelTitle/>
+        <Artikel/>
+        <Footer/>
+     </Box>
    </ChakraProvider>
   );
 }

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Flex, IconButton } from '@chakra-ui/react'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import ArticleBox from '../components/ArticleBox'
+import ArtikelCarousel from '../components/ArtikelCarousel';
 
 function Artikel({text, id}) {
     const [items, setItems] = useState([]);
@@ -28,6 +29,7 @@ function Artikel({text, id}) {
                 <IconButton ml="50px" margin="auto" borderRadius="50px" icon={<FaChevronRight color="#FFFFFF" size={75}/>} bgColor="black" width="100px" height="100px"/>
             </Flex>
         </Flex>
+        // <ArtikelCarousel/>
     );
 }
 

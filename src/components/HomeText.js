@@ -29,7 +29,7 @@ export default function HomeText() {
                 <br/>
                 Indonesia sampai saat ini
                 <br/>
-                <Text marginTop="8px" fontSize="13.48px" fontStyle="italic">23 Septermber 2021</Text>
+                <Text marginTop="8px" fontSize="13.48px" fontStyle="italic">23 September 2021</Text>
             </GridItem>
         </Grid>
     )
