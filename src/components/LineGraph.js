@@ -8,7 +8,7 @@ const options = {
   },
   elements: {
     point: {
-      radius: 1.7,
+      radius: 0.5,
     },
   },
   // maintainAspectRatio: false,
@@ -51,18 +51,38 @@ const options = {
 };
 
 const buildChartData = (data, casesType) => {
+    // let chartData =[];
+    // let lastDataPoint;
+    // for(let date in data[casesType]){
+    //     if(lastDataPoint){
+    //         let newDataPoint={
+    //             x: date,
+    //             y: data[casesType][date] - lastDataPoint,
+    //         };
+    //         chartData.push(newDataPoint);
+    //     }
+    //     lastDataPoint = data[casesType][date];
+    // }
+    // return chartData;
     let chartData =[];
-    let lastDataPoint;
-    for(let date in data[casesType]){
-        if(lastDataPoint){
-            let newDataPoint={
-                x: date,
-                y: data[casesType][date] - lastDataPoint,
-            };
-            chartData.push(newDataPoint);
-        }
-        lastDataPoint = data[casesType][date];
+    // data.map((dataHarian)=>{     
+    //   let newDataPoint = {
+    //       x: dataHarian.tanggal.toString().slice(0,10),
+    //       y: dataHarian[casesType]
+          
+    //   }
+    //   console.log(newDataPoint["x"])
+    //   chartData.push(newDataPoint)
+      
+    // })
+    for(let i = data.length-360;i < data.length ;i ++){
+      let newDataPoint = {
+         x: data[i].tanggal.toString().slice(0,10),
+         y: data[i][casesType]
+      }
+      chartData.push(newDataPoint)
     }
+    
     return chartData;
 }
 
@@ -71,32 +91,25 @@ function LineGraph({ casesType, deathCases, recCases }) {
     const [deathData, setDeath] = useState({})
     const [recData, setRec] = useState({})
 
+
     useEffect(() => {
         const fetchData = async () => {
-            await fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=120")
-            .then((response) => {
-                return response.json();
-            })
-            .then((data) => {
-                let chartData = buildChartData(data, casesType);
-                let chartDeath = buildChartData(data, deathCases);
-                let chartRecov = buildChartData(data, recCases)
-                setDeath(chartDeath)
-                setData(chartData);
-                setRec(chartRecov);
-                //console.log(chartData)
-            })
-            ;
+            const response = await fetch("https://apicovid19indonesia-v2.vercel.app/api/indonesia/harian")
+            const data = await response.json();
+            // console.log(data);
+            setRec(buildChartData(data, "sembuh"));
+            setDeath(buildChartData(data, "meninggal"));
+            setData(buildChartData(data, "positif")); 
+            
         };
         fetchData();
     }, []);
-
+  
     return (
         <div>
             {data?.length > 0 && (
             <Line 
-            height="300px"
-            width="1000px"
+            
             data={{
                 datasets: [
                 {
@@ -105,18 +118,23 @@ function LineGraph({ casesType, deathCases, recCases }) {
                     data: data,
                     label: "Total kasus",
                     gridLines: false,
+                    lineTension: 0.4
                 },
                 {
                   data: deathData,
                   borderColor:"black",
                   label: "deaths",
                   backgroundColor: "black",
+                  gridLines: false,
+                  lineTension: 0.4
                 },
                 {
-                  data: deathData,
+                  data: recData,
                   borderColor:"blue",
                   label: "recovered",
                   backgroundColor: "blue",
+                  gridLines: false,
+                  lineTension: 0.4
                 }
                 
                 ],

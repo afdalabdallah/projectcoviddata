@@ -21,8 +21,8 @@ function DataIndo() {
                 <GridItem rowSpan={2} colSpan={1}>
                     <PositifCard />
                 </GridItem>
-                <GridItem rowSpan={3} colSpan={2} paddingLeft="85px">
-                        <Box marginTop="24px">
+                <GridItem rowSpan={2} colSpan={3} paddingLeft="85px">
+                        <Box marginTop="24px" height="235px" width="724px" >
                             <LineGraph casesType="cases" deathCases="deaths" recCases="recovered"/>
                             {/* <LineRechart casesType="cases" /> */}
                         </Box>

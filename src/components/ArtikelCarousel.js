@@ -6,7 +6,7 @@ import { Carousel } from 'react-responsive-carousel';
 function ArtikelCarousel() {
     return (
         <div>
-             <Carousel>
+             <Carousel >
                 <div>
                     <img src='./LOGO_1.png' alt="logo"/>
                     <p className="legend">Legend 1</p>
