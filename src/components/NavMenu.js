@@ -13,7 +13,7 @@ function NavMenu() {
             spacing="90px">
             <StackItem>
                 <LinkS to="home" spy={true} smooth={false}  offset={-130}>
-                    <Text cursor="pointer"> Home</Text>  
+                    <Text cursor="pointer" textDecoration={'none'}> Home</Text>  
                 </LinkS>
             </StackItem>
             <StackItem>

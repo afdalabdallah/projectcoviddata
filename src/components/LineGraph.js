@@ -1,6 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import { Line } from "react-chartjs-2";
 import numeral from 'numeral';
+import { LineChart } from 'recharts';
 
 const options = {
   legend: {
@@ -21,61 +22,19 @@ const options = {
       },
     },
   },
-  scales: {
-    x: [
-      {
-        type: "time",
-        time: {
-          format: "DD/MM/YY",
-          tooltipFormat: "ll",
-        },
-        gridLines: {
-          display: false
-        }
-      },
-    ],
-    y: [
-      {
-        gridLines: {
-          display: true,
-        },
-        ticks: {
-          // Include a dollar sign in the ticks
-          callback: function (value, index, values) {
-            return numeral(value).format("0a");
-          },
-        },
-      },
-    ],
-  },
+  scales:{
+    x:{
+      display: false,
+    },
+    y:{
+      // display: false,
+    }
+  }
 };
 
 const buildChartData = (data, casesType) => {
-    // let chartData =[];
-    // let lastDataPoint;
-    // for(let date in data[casesType]){
-    //     if(lastDataPoint){
-    //         let newDataPoint={
-    //             x: date,
-    //             y: data[casesType][date] - lastDataPoint,
-    //         };
-    //         chartData.push(newDataPoint);
-    //     }
-    //     lastDataPoint = data[casesType][date];
-    // }
-    // return chartData;
     let chartData =[];
-    // data.map((dataHarian)=>{     
-    //   let newDataPoint = {
-    //       x: dataHarian.tanggal.toString().slice(0,10),
-    //       y: dataHarian[casesType]
-          
-    //   }
-    //   console.log(newDataPoint["x"])
-    //   chartData.push(newDataPoint)
-      
-    // })
-    for(let i = data.length-365;i < data.length ;i ++){
+    for(let i = data.length-365;i < data.length ;i++){
       let newDataPoint = {
          x: data[i].tanggal.toString().slice(0,10),
          y: data[i][casesType]
@@ -108,12 +67,13 @@ function LineGraph({ casesType, deathCases, recCases }) {
     return (
         <div>
             {posData?.length > 0 && (
-            <Line 
-            
+            <Line
+            height={'100px'}
+            options={options}
             data={{
                 datasets: [
                 {
-                    backgroundColor: "rgba(204, 16, 52, 0.5)",
+                    backgroundColor: "#CC1034",
                     borderColor: "#CC1034",
                     data: posData,
                     label: "Total kasus",
@@ -140,7 +100,7 @@ function LineGraph({ casesType, deathCases, recCases }) {
                 ],
                 
             }}
-            options={options}
+            
             />
             
             )}

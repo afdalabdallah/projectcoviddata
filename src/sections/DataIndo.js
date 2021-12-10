@@ -1,5 +1,6 @@
 import { Box, Center, Grid, GridItem } from '@chakra-ui/react'
 import React from 'react'
+import DirawatCard from '../components/DirawatCard'
 import LineGraph from '../components/LineGraph'
 import LineRechart from '../components/LineRechart'
 import NegatifCard from '../components/NegatifCard'
@@ -22,11 +23,14 @@ function DataIndo() {
                 <GridItem rowSpan={2} colSpan={1}>
                     <SembuhCard />
                 </GridItem>
-                <GridItem rowSpan={2} colSpan={3} paddingLeft="85px">
-                        <Box marginTop="24px" height="235px" width="724px" >
+                <GridItem rowSpan={3} colSpan={2} paddingLeft="85px">
+                        <Box marginTop="24px" height="235px" width="900px" >
                             <LineGraph casesType="cases" deathCases="deaths" recCases="recovered"/>
                             {/* <LineRechart casesType="cases" /> */}
                         </Box>
+                </GridItem>
+                <GridItem rowSpan={3} colSpan={1} marginTop={10}>
+                    <DirawatCard />
                 </GridItem>
             </Grid>
         </Box>

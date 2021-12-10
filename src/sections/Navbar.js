@@ -10,7 +10,7 @@ function Navbar() {
     
 
     return (
-        <Box height="109" bgColor="#FFFFFF" className="navbar" paddingLeft="53px" paddingTop="16px" paddingRight="53px">
+        <Box height="109" bgColor="#FFFFFF" className="navbar" paddingLeft="53px" paddingTop="16px" paddingRight="53px" position={'sticky'}>
             <HStack justify={'space-between'} width={'100%'}>
                 <StackItem>
                     <HStack spacing="18px">
