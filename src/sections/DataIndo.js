@@ -1,5 +1,5 @@
-import { Box, Center, Grid, GridItem } from '@chakra-ui/react'
-import React from 'react'
+import { Box, Center, Grid, GridItem, Text } from '@chakra-ui/react'
+import React,{useEffect,useState} from 'react'
 import DirawatCard from '../components/DirawatCard'
 import LineGraph from '../components/LineGraph'
 import LineRechart from '../components/LineRechart'
@@ -8,6 +8,16 @@ import PositifCard from '../components/PositifCard'
 import SembuhCard from '../components/SembuhCard'
 
 function DataIndo() {
+    const [covid, setCovid] = useState({});
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch("https://apicovid19indonesia-v2.vercel.app/api/indonesia");
+            const data = await response.json();
+            setCovid(data);
+            // console.log(data);     
+        };
+        fetchData();
+    }, []);
     return (
         <Box height="556px" bgColor="#FFD6C3" marginBottom={180}>
             <Grid
@@ -31,7 +41,8 @@ function DataIndo() {
                 </GridItem>
                 <GridItem rowSpan={3} colSpan={1} marginTop={10}>
                     <DirawatCard />
-                </GridItem>
+                    <Text align={'right'} fontStyle={'italic'} fontSize={14} marginTop={10} marginRight={2}>Last update: {covid.lastUpdate}</Text>
+                </GridItem> 
             </Grid>
         </Box>
     )
