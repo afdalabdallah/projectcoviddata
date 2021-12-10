@@ -4,6 +4,7 @@ import LineGraph from '../components/LineGraph'
 import LineRechart from '../components/LineRechart'
 import NegatifCard from '../components/NegatifCard'
 import PositifCard from '../components/PositifCard'
+import SembuhCard from '../components/SembuhCard'
 
 function DataIndo() {
     return (
@@ -19,7 +20,7 @@ function DataIndo() {
                     <NegatifCard/>
                 </GridItem>
                 <GridItem rowSpan={2} colSpan={1}>
-                    <PositifCard />
+                    <SembuhCard />
                 </GridItem>
                 <GridItem rowSpan={2} colSpan={3} paddingLeft="85px">
                         <Box marginTop="24px" height="235px" width="724px" >

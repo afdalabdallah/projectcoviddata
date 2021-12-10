@@ -75,7 +75,7 @@ const buildChartData = (data, casesType) => {
     //   chartData.push(newDataPoint)
       
     // })
-    for(let i = data.length-360;i < data.length ;i ++){
+    for(let i = data.length-365;i < data.length ;i ++){
       let newDataPoint = {
          x: data[i].tanggal.toString().slice(0,10),
          y: data[i][casesType]
@@ -87,27 +87,27 @@ const buildChartData = (data, casesType) => {
 }
 
 function LineGraph({ casesType, deathCases, recCases }) {
-    const [data, setData] = useState({})
+    const [posData, setPos] = useState({})
     const [deathData, setDeath] = useState({})
     const [recData, setRec] = useState({})
-
+    var cek = false;
 
     useEffect(() => {
         const fetchData = async () => {
             const response = await fetch("https://apicovid19indonesia-v2.vercel.app/api/indonesia/harian")
             const data = await response.json();
-            // console.log(data);
-            setRec(buildChartData(data, "sembuh"));
+            // console.log(data);     
             setDeath(buildChartData(data, "meninggal"));
-            setData(buildChartData(data, "positif")); 
-            
+            setRec(buildChartData(data, "sembuh"));
+            setPos(buildChartData(data, "positif")); 
+            cek = true;
         };
         fetchData();
     }, []);
   
     return (
         <div>
-            {data?.length > 0 && (
+            {posData?.length > 0 && (
             <Line 
             
             data={{
@@ -115,7 +115,7 @@ function LineGraph({ casesType, deathCases, recCases }) {
                 {
                     backgroundColor: "rgba(204, 16, 52, 0.5)",
                     borderColor: "#CC1034",
-                    data: data,
+                    data: posData,
                     label: "Total kasus",
                     gridLines: false,
                     lineTension: 0.4
@@ -123,7 +123,7 @@ function LineGraph({ casesType, deathCases, recCases }) {
                 {
                   data: deathData,
                   borderColor:"black",
-                  label: "deaths",
+                  label: "Meninggal",
                   backgroundColor: "black",
                   gridLines: false,
                   lineTension: 0.4
@@ -131,7 +131,7 @@ function LineGraph({ casesType, deathCases, recCases }) {
                 {
                   data: recData,
                   borderColor:"blue",
-                  label: "recovered",
+                  label: "Sembuh",
                   backgroundColor: "blue",
                   gridLines: false,
                   lineTension: 0.4

@@ -10,6 +10,12 @@ function Protokol() {
         <HStack 
         id="protokol" 
         height="444px" 
+        //ini klo nge css
+        
+        // width="1275px"
+        // position="absolute"
+        // top = "1641px"
+        // left="0px"
         bgColor="#EBEDFF"
         justifyContent="space-between"
         padding="0 102px 0 102px">

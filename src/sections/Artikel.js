@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Flex, IconButton } from '@chakra-ui/react'
+import { Flex, IconButton, Box } from '@chakra-ui/react'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import ArticleBox from '../components/ArticleBox'
 import ArtikelCarousel from '../components/ArtikelCarousel';
@@ -17,21 +17,9 @@ function Artikel({text, id}) {
     }
 
     return ( 
-        <Flex position="relative" id="artikel" height="400px" bgColor="#FFD6C3" marginBottom="200" zIndex="-1">
-            {/* <Flex w="100%" mt={5} mb={5}>
-                <IconButton ml="4px" margin="auto" borderRadius="50px" icon={<FaChevronLeft color="#FFFFFF" size={75}/>} bgColor="black" width="100px" height="100px"/>
-                {items.map(() => (
-                    <ArticleBox
-                        text={text}
-                        id={idx++}
-                    />
-                ))}
-                <IconButton ml="50px" margin="auto" borderRadius="50px" icon={<FaChevronRight color="#FFFFFF" size={75}/>} bgColor="black" width="100px" height="100px"/>
-            </Flex> */}
-            
-        </Flex>
-
-        // <ArtikelCarousel/>
+        <Box id="artikel" height="400px" bgColor="#FFD6C3" marginBottom="200" paddingTop={5} paddingLeft={10} paddingRight={10}>
+            <ArtikelCarousel/>
+        </Box>
     );
 }
 

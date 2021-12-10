@@ -7,6 +7,7 @@ import Footer from "./sections/Footer";
 import Home from "./sections/Home";
 import Navbar from "./sections/Navbar";
 import Protokol from "./sections/Protokol";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Box } from '@chakra-ui/react'
 import { Center } from '@chakra-ui/react'
 

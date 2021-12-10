@@ -1,7 +1,9 @@
-import React,{useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { Box, Center, Text } from  '@chakra-ui/react'
+import "@fontsource/montserrat";
 
-function NegatifCard() {
+
+function SembuhCard() {
     const [covid, setCovid] = useState({});
     useEffect(() => {
         const fetchData = async () => {
@@ -18,27 +20,28 @@ function NegatifCard() {
         fontWeight:"bold" ,
         color:"#545DCA",
     }
-    // var int = covid.meninggal.toLocaleString();
+    // var int = covid.sembuh.toLocaleString();
     return (
         <Center>
             <Box w="338px" h="182px" bgColor="white" borderRadius="36px" marginTop="36px">
                 <Box w="316px" h="156px" borderRadius="36px" borderColor="#F57A3F" borderWidth="3px" marginTop="13px" marginLeft="11px">
                     <Text
-                        marginTop={8}
-                        style={detailStyle}
-                        align={'center'}>
-                            {covid.meninggal}
-                        </Text>
-                        <Text 
-                        fontFamily={'Montserrat'}
-                        color={"#545DCA"}
-                        align={'center'}
-                        fontSize={14}>Jumlah Meninggal
+                    marginTop={8}
+                    style={detailStyle}
+                    align={'center'}>
+                        {covid.sembuh}
+                    </Text>
+                    <Text 
+                    fontFamily={'Montserrat'}
+                    color={"#545DCA"}
+                    align={'center'}
+                    fontSize={14}>Jumlah Sembuh
                     </Text>
                 </Box>
             </Box>
         </Center>
+     
     )
 }
 
-export default NegatifCard
+export default SembuhCard
